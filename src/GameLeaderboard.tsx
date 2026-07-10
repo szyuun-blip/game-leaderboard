@@ -53,6 +53,7 @@ interface WinLossRow {
 }
 
 type RankRow = HallRow | WinLossRow;
+type AnyRow = ActRow | RankRow;
 
 const ACT_TABS: ActTabDef[] = [
   { name: "捕魚倍率榜", badge: "COMING SOON", metric: "mult", status: "coming" },
@@ -325,7 +326,7 @@ export default function GameLeaderboard({
 
   const view = useMemo(() => {
     let tabs: NavTab[];
-    let rawRows: RankRow[];
+    let rawRows: AnyRow[];
     let metricLabel: string;
     let showReward = false;
     let showHall = false;
